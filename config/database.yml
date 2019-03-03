@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: 123456
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: rails-FAP-Ramon_development
+
+  
+test:
+  <<: *default
+  database: rails-FAP-Ramon_test
+
+production:
+  <<: *default
+  database: rails-FAP-Ramon_production
+  username: rails-FAP-Ramon
+  password: <%= ENV['RAILS-FAP-RAMON_DATABASE_PASSWORD'] %>
